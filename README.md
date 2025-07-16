@@ -64,5 +64,3 @@ root/
 ## 👨‍💻 Developer
 
 **Avnish Kumar Sinha**
-CS-312 – Northern Arizona University
----
