@@ -1,96 +1,68 @@
-# CS-312 Mini Project 4: Blog Web Application
+# 📝 CS-312 Mini Project 4: Blog Web Application Using React.js, Node.js, Express.js
 
-## Description
+This is the fourth part of the Mini Projects!
 
-This is a full-stack blog web application developed for CS-312. It uses React.js for the frontend and Node.js with Express.js for the backend. Users can sign up, log in, create blog posts, edit them, delete them, and view posts in a profile view.
+## 📌 Objective
 
-## Tech Stack
+The goal of this mini-project is to build a full-stack blog web application using **React.js** for the frontend and **Node.js + Express.js** for the backend. It upgrades the previous EJS-based server-side implementation (from Mini Project 1 or 3) with a modern client-side React interface.
 
-- Frontend: React.js
-- Backend: Node.js, Express.js
-- Authentication: JWT (via custom middleware)
-- Styling: Plain CSS
+Users can:
+- Register and log in
+- Create, view, edit, and delete blog posts
+- View all public posts and personal profile
+- Access protected routes using middleware-based authentication
 
-## Folder Structure
+---
 
-```
-BlogReactNodeTest/
-├── client/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── BlogPost.js
-│   │   │   ├── EditPost.js
-│   │   │   ├── MyProfile.js
-│   │   │   └── PostList.js
-│   │   ├── styles/
-│   │   ├── Signin.js
-│   │   ├── Signup.js
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── package.json
-├── server/
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── blogController.js
-│   ├── middleware/
-│   │   └── authMiddleware.js
-│   ├── models/
-│   │   ├── postModel.js
-│   │   └── userModel.js
-│   ├── routes/
-│   │   └── index.js
-│   ├── index.js
-│   └── package.json
-└── .gitignore
-````
+## 🚀 How to Run
 
-## How to Run
-
-1. Clone the repository
-
+### 1. Start Backend Server
 ```bash
-git clone https://github.com/avnishsinha/CS-312-MiniProject-4.git
-cd CS-312-MiniProject-4
-````
-
-2. Install dependencies
-
-```bash
-# Backend
-cd server
-npm install
-
-# Frontend
-cd ../client
-npm install
-```
-
-3. Run the app
-
-```bash
-# Backend
-cd server
 node index.js
+````
 
-# Frontend
-cd ../client
+### 2. Start Frontend React App
+
+```bash
+cd ./client
 npm start
 ```
 
-Frontend runs on `http://localhost:3000`
+Frontend runs on: `http://localhost:3000`
+Backend runs on: `http://localhost:8000` *(adjust if changed)*
 
-## Features
+---
 
-* User registration and login
-* Create, update, and delete blog posts
-* View all posts and personal profile
-* Basic route protection using middleware
+## ✨ Features
 
-## Developer
+* 🔐 User Registration & Login
+* ✍️ Create, Edit, Delete Blog Posts
+* 🧾 View All Posts + My Profile Page
+* 🛡️ Protected Routes using Middleware
+* 🎨 Responsive Styling (CSS)
 
-Avnish Kumar Sinha
-CS-312 – Northern Arizona University
-Solo project
+---
+
+## 📁 Folder Structure
 
 ```
+root/
+├── client/               # React Frontend
+│   ├── components/       # Reusable React components (BlogForm, PostList, etc.)
+│   └── ...
+├── server/               # Express Backend
+│   ├── controllers/      # Blog and Auth controller logic
+│   ├── middleware/       # Auth middleware for route protection
+│   ├── models/           # User and Post models
+│   └── routes/           # API route definitions
+├── index.js              # Backend entry point
+└── README.md             # This file
+```
+
+---
+
+## 👨‍💻 Developer
+
+**Avnish Kumar Sinha**
+CS-312 – Northern Arizona University
+---
