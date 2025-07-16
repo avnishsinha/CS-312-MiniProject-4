@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Signin() {
-  const [form, setForm] = useState({ user_id: '', password: '' });
+  const [form, setForm] = useState({ userId: '', password: '' });
   const [message, setMessage] = useState('');
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,7 +27,7 @@ function Signin() {
     <div>
       <h2>Signin</h2>
       <form onSubmit={handleSubmit}>
-        <input name="user_id" placeholder="User ID" value={form.user_id} onChange={handleChange} required /><br />
+        <input name="userId" placeholder="User ID" value={form.userId} onChange={handleChange} required /><br />
         <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required /><br />
         <button type="submit">Signin</button>
       </form>

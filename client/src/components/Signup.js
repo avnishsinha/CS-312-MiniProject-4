@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Signup() {
-  const [form, setForm] = useState({ user_id: '', password: '', name: '', age: '', occupation: '', city: '' });
+  const [form, setForm] = useState({ userId: '', password: '', name: '', age: '', occupation: '', city: '' });
   const [message, setMessage] = useState('');
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,13 +15,14 @@ function Signup() {
     });
     const data = await res.json();
     setMessage(data.message || (res.ok ? 'Signup successful!' : 'Signup failed'));
+    if (res.ok) window.location.href = '/signin';
   };
 
   return (
     <div>
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
-        <input name="user_id" placeholder="User ID" value={form.user_id} onChange={handleChange} required /><br />
+        <input name="userId" placeholder="User ID" value={form.userId} onChange={handleChange} required /><br />
         <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required /><br />
         <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required /><br />
         <input name="age" placeholder="Age" value={form.age} onChange={handleChange} /><br />

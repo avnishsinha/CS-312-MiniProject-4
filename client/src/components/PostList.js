@@ -15,25 +15,25 @@ function PostList() {
     if (!window.confirm('Delete this post?')) return;
     const res = await fetch(`http://localhost:8000/api/blogs/${id}`, {
       method: 'DELETE',
-      headers: { 'Authorization': `Bearer ${user?.token}` }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: user.userId })
     });
-    if (res.ok) setPosts(posts.filter(post => post._id !== id));
+    if (res.ok) setPosts(posts.filter(post => post.id !== id));
   };
 
   return (
     <div>
-      <h2 style={{ color: '#61dafb' }}>All Blog Posts</h2>
-      {posts.length === 0 && <p>No posts yet. Be the first to post!</p>}
+      <h2>All Blog Posts</h2>
       {posts.map(post => (
-        <div className="post" key={post._id}>
+        <div key={post.id} style={{ border: '1px solid #ccc', margin: 8, padding: 8 }}>
           <h3>{post.title}</h3>
-          <p>{post.body}</p>
-          <p style={{ fontSize: '0.9em', color: '#888' }}><b>By:</b> {post.author}</p>
-          {user && user.user_id === post.author && (
-            <div className="post-actions">
-              <Link to={`/edit/${post._id}`} style={{ marginRight: 10 }}>Edit</Link>
-              <button onClick={() => handleDelete(post._id)}>Delete</button>
-            </div>
+          <p>{post.content}</p>
+          <p><b>By:</b> {post.userId}</p>
+          {user && user.userId === post.userId && (
+            <>
+              <Link to={`/edit/${post.id}`}>Edit</Link>
+              <button onClick={() => handleDelete(post.id)}>Delete</button>
+            </>
           )}
         </div>
       ))}

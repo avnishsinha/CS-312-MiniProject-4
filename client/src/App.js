@@ -19,10 +19,10 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
-      {!user && <Link to="/signup">Signup</Link>}
-      {!user && <Link to="/signin">Signin</Link>}
-      {user && <Link to="/profile">My Profile</Link>}
+      <Link to="/">Home</Link> |{" "}
+      {!user && <Link to="/signup">Signup</Link>} |{" "}
+      {!user && <Link to="/signin">Signin</Link>} |{" "}
+      {user && <Link to="/profile">My Profile</Link>} |{" "}
       {user && <button onClick={handleSignout}>Sign out</button>}
     </nav>
   );
@@ -31,7 +31,7 @@ function Navbar() {
 function Home() {
   const user = JSON.parse(localStorage.getItem('user'));
   return (
-    <div className="container">
+    <div>
       {user && <BlogPostForm />}
       <PostList />
     </div>
@@ -44,10 +44,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<div className="container"><Signup /></div>} />
-        <Route path="/signin" element={<div className="container"><Signin /></div>} />
-        <Route path="/edit/:id" element={<div className="container"><EditPost /></div>} />
-        <Route path="/profile" element={<div className="container"><MyProfile /></div>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/profile" element={<MyProfile />} />
       </Routes>
     </Router>
   );

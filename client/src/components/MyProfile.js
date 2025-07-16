@@ -6,7 +6,7 @@ function MyProfile() {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:8000/api/blogs?author=${user.user_id}`)
+      fetch(`http://localhost:8000/api/blogs/user/${user.userId}`)
         .then(res => res.json())
         .then(data => setPosts(data));
     }
@@ -16,18 +16,17 @@ function MyProfile() {
 
   return (
     <div>
-      <h2 style={{ color: '#61dafb' }}>My Profile</h2>
-      <p><b>User ID:</b> {user.user_id}</p>
+      <h2>My Profile</h2>
+      <p><b>User ID:</b> {user.userId}</p>
       <p><b>Name:</b> {user.name}</p>
       <p><b>Age:</b> {user.age}</p>
       <p><b>Occupation:</b> {user.occupation}</p>
       <p><b>City:</b> {user.city}</p>
       <h3>My Posts</h3>
-      {posts.length === 0 && <p>You haven't posted anything yet.</p>}
       {posts.map(post => (
-        <div className="post" key={post._id}>
+        <div key={post.id} style={{ border: '1px solid #ccc', margin: 8, padding: 8 }}>
           <h4>{post.title}</h4>
-          <p>{post.body}</p>
+          <p>{post.content}</p>
         </div>
       ))}
     </div>
